@@ -1,13 +1,11 @@
 
-import Todo from './components/todo/todo'
-
-import './App.css'
+import Stepper from './pages/stepper/stepper'
 
 function App() {
 
   return (
     <>
-      <Todo />
+      <Stepper />
     </>
   )
 }
