@@ -1,29 +1,10 @@
-import { Component, useState } from "react"
+import { useState } from "react"
+import { Steps } from "../../routes/stepperRoute/step"
+import styles from '../../styles/stepper/stepper.module.css'
 
-import Step1 from "../../components/steps/step1"
-import Step2 from "../../components/steps/step2"
-import Step3 from "../../components/steps/step3"
-
-import './stepper.css'
-
-const Stepper = ()=>{
+const StepperApp = ()=>{
 
   const [currentStep,setCurrentStep]= useState(0)
-
-  const Steps =[
-    {
-      id:1,
-      Component:<Step1/>
-    },
-    {
-      id:2,
-      Component:<Step2/>
-    },
-    {
-      id:3,
-      Component:<Step3/>
-    },
-  ]
 
   const nextStep = ()=>{
     setCurrentStep((step)=> Math.min(step +1,Steps.length -1))
@@ -35,8 +16,15 @@ const Stepper = ()=>{
 
 
   return(
-    <div>
-      <div>{Steps[currentStep].Component}</div>
+    <>
+    <div className={styles.box}>
+      <div className={styles.tracker}>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+      </div>
+      <div>{Steps[currentStep].component}</div>
       <button
         onClick={preStep}
         disabled={currentStep === 0}
@@ -47,7 +35,8 @@ const Stepper = ()=>{
         disabled={currentStep === Steps.length -1}
       >Next</button>
     </div>
+    </>
   )
 }
 
-export default Stepper
+export default StepperApp

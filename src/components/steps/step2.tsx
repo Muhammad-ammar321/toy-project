@@ -5,7 +5,7 @@ const Step2=()=>{
 
 
     return(
-        <div>
+        <form>
             <h1>Contact Information</h1>
             
             
@@ -15,7 +15,7 @@ const Step2=()=>{
             <label htmlFor="contact">Phone Number</label>
             <input id="contact" type="text" />
                                         
-        </div>
+        </form>
     )
 }
 

@@ -1,0 +1,19 @@
+*{
+    color:black
+}
+
+.box{
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #9ba7b6;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: sans-serif;
+}
+.tracker{
+    display:flex;
+    justify-content: space-around;
+    position: relative;
+    top: -2.9rem;
+}

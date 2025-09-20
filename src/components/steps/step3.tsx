@@ -1,30 +1,12 @@
 
-
+import { Courses } from "./stepCard/Course"
 
 const Step3=()=>{
 
 
-    const Courses =[
-        {
-            value:'psdc',
-            Title:'PSDC'
-        },
-        {
-            value:'shopify',
-            Title:'Shopify'
-        },
-        {
-            value:'databse',
-            Title:'SQL Database'
-        },
-        {
-            value:'e-commerce',
-            Title:'E-Commerce'
-        },
-    ]
 
     return(
-        <div>
+        <form action=" ">
             <h1>Choice Your Prefernce</h1>
             <label htmlFor="fullname">FullName</label>
             <input id="fullname" type="" />
@@ -36,8 +18,8 @@ const Step3=()=>{
                 )}
                 </select>
 
-                                        
-        </div>
+        </form>
+              
     )
 }
 

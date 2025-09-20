@@ -1,11 +1,12 @@
 
 import Stepper from './pages/stepper/stepper'
+import Todo from './pages/todoList/todo'
 
 function App() {
 
   return (
     <>
-      <Stepper />
+    <Todo />
     </>
   )
 }

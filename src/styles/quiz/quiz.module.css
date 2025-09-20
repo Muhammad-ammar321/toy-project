@@ -1,0 +1,173 @@
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Headings */
+.quiz_h1{
+  margin-bottom: 24px;
+  color: #c02f2f;
+}
+
+/* Buttons */
+.startBtn, .nextBtn, .restartBtn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.startBtn:hover, .nextBtn:hover:not(:disabled), .restartBtn:hover {
+  background-color: #0056b3;
+}
+
+.nextBtn:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
+}
+
+/* Timer */
+.timer {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ff4d4d;
+}
+
+/* Question Section */
+.questionSection {
+  margin-bottom: 20px;
+}
+
+.questionNumber {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.questionText {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionBtn {
+  background-color: #e7eaf0;
+  border: 2px solid transparent;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.optionBtn:hover:not(:disabled) {
+  background-color: #d0d7e5;
+}
+
+.optionBtnSelected {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.optionBtnDisabled {
+  cursor: default;
+}
+
+/* Controls */
+.controls {
+  margin-top: 20px;
+}
+
+/* Results */
+.scoreSummary {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreItemCorrect {
+  color: #28a745;
+}
+
+.scoreItemIncorrect {
+  color: #dc3545;
+}
+
+.scoreLabel {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.scoreValue {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resultList {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.resultItem {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 6px solid;
+}
+
+.resultItemCorrect {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.resultItemIncorrect {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.resultQuestion {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.resultAnswer, .resultCorrect {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.answerText, .correctText {
+  font-weight: 600;
+}

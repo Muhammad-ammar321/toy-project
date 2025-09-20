@@ -1,5 +1,6 @@
 import { useState, useEffect, type ChangeEvent, type FormEvent } from 'react'
-import './todo.css'
+
+import styles from '../../styles/todo/todo.module.css'
 
 type TodoItem = {
   id: number,
@@ -7,8 +8,7 @@ type TodoItem = {
   completed: boolean
 
 }
-
-const Todo = () => {
+const TodoApp = () => {
   const [task, setTask] = useState('')
   const [todos, setTodos] = useState([
     {
@@ -39,9 +39,6 @@ const Todo = () => {
   }, [todos])
   
   
-  useEffect(()=>{
-    localStorage.setItem('todos',JSON.stringify(todos))
-  },[todos])
 
   const onChecked=(id:number)=>{
     setTodos((checkedTask)=>
@@ -86,11 +83,11 @@ const Todo = () => {
   console.log(todos)
 
   return (
-    <div className="box">
-      <h1 className='header'>TODO LIST</h1>
+    <div className={styles.box}>
+      <h1 className={styles.header}>TODO LIST</h1>
       <div className='todo-container'>
 
-        <form className="todo-form" onSubmit={onSubmit}>
+        <form className={styles.todo_form} onSubmit={onSubmit}>
           <label htmlFor="task" ><h3>Add a New Task</h3></label>
           {/* <small className='noList'>Plese put some value</small> */}
           <input type="text" value={task} onChange={onChange} id="task"  placeholder="What do you want to do" required />
@@ -98,7 +95,7 @@ const Todo = () => {
         </form>
       
         {todos.length > 0 ? (
-          <ul className="todo-list">
+          <ul className={styles.todo_list}>
             {todos.map((todo => (
               <li key={todo.id}>
                 {editingId === todo.id ? (
@@ -107,18 +104,19 @@ const Todo = () => {
                       type="text"
                       value={editingText}
                       onChange={(e) => setEditingText(e.target.value)}
-                      className='bg-white text-red'
                     />
-                    <div className='button-style'>
+                    <div className={styles.button_style}>
                       <button onClick={() => saveEditTask(todo.id)} >Save</button>
                       <button onClick={()=>setEditingId(null)} >cancel</button>
                     </div>
                   </>
                 ) : (
                   <>
-                  <input type='checkbox' checked={todo.completed} onChange={()=> onChecked(todo.id)} />
-                  <label htmlFor='done-task' style={{textDecoration : todo.completed ? 'line-through': 'none'}} >{todo.text}</label>
-                    <div className='button-style'>
+                  <input type='checkbox' id={`${todo.id}`} checked={todo.completed} onChange={()=> onChecked(todo.id)} />
+                  <label htmlFor={`${todo.id}`} className={`${styles.done} ${todo.completed ? styles.completed : ''}`}                 >
+                    {todo.text}
+                  </label>
+                    <div className={styles.button_style}>
                       <button onClick={() => deleteTask(todo.id)}  >Delete</button>
                       <button onClick={() => startEditTask(todo.id, todo.text)} >Edit</button>
                     </div>
@@ -126,11 +124,11 @@ const Todo = () => {
                 )}
               </li>
             )))}
-          </ul>) : (<p className='noList'>Please add some task</p>)
+          </ul>) : (<p className={styles.noList}>Please add some task</p>)
         }
       </div>
     </div>
   )
 }
 
-export default Todo
+export default TodoApp

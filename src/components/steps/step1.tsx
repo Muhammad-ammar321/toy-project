@@ -5,7 +5,8 @@ const Step1=()=>{
 
 
     return(
-        <div>
+        <form action="">
+
             <h1>Personal Information</h1>
             <label htmlFor="S.name">FullName</label>
             <input id="S.name" type="text" />
@@ -15,8 +16,8 @@ const Step1=()=>{
 
             <label htmlFor="f.name">Father Name</label>
             <input id="f.name" type="text" />
-                                        
-        </div>
+              
+        </form>
     )
 }
 
