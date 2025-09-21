@@ -1,17 +1,44 @@
-import { Link } from "react-router"
-const Home = ()=>{
-    return(
-        <div>
-            <h1>Home Page</h1>
-            <nav>
-                <Link to={'/quiz'} >This is quiz</Link><br />
-                <Link to={'/stepper'} >This is stepper</Link><br />
-                <Link to={'/todolist'} >This is todo</Link>
+import { Link } from "react-router";
+import styles from "../../styles/homepage/home.module.css";
 
-            </nav>
+const projects = [
+  {
+    title: "Todo App",
+    image: "/images/todo.png", // put inside public/images/
+    path: "/todolist",
+  },
+  {
+    title: "Quiz App",
+    image: "/images/quiz.png",
+    path: "/quiz",
+  },
+  {
+    title: "Stepper Form",
+    image: "/images/stepper.png",
+    path: "/stepper",
+  },
+];
 
-        </div>
-    )
-}
+const Home = () => {
+  return (
+    <div className={styles.pageWrapper}>
+      <h1 className={styles.heading}>Mini Projects</h1>
+      <div className={styles.cardGrid}>
+        {projects.map((project, idx) => (
+          <div key={idx} className={styles.card}>
+            <Link to={project.path} className={styles.link}>
+              <img
+                src={project.image}
+                alt={project.title}
+                className={styles.image}
+              />
+              <h2 className={styles.title}>{project.title}</h2>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

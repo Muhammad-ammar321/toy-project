@@ -1,19 +1,158 @@
-*{
-    color:black
+/* Full screen center */
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f6fa;
 }
 
-.box{
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #9ba7b6;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    font-family: sans-serif;
+/* Small box like login */
+.container {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
 }
-.tracker{
-    display:flex;
-    justify-content: space-around;
-    position: relative;
-    top: -2.9rem;
+
+/* Stepper row */
+.stepperContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Step */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+/* Connector line */
+.connector {
+  position: absolute;
+  top: 16px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+
+.completedConnector {
+  background-color: #28a745;
+}
+
+/* Circle */
+.circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.activeCircle {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.completedCircle {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Label */
+.label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #555;
+}
+
+.activeLabel {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.completedLabel {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #333;
+}
+
+input, select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background-color: #6c757d;
+}
+
+button.secondary:hover {
+  background-color: #545b62;
 }

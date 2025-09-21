@@ -1,42 +1,51 @@
-import { useState } from "react"
-import { Steps } from "../../routes/stepperRoute/step"
-import styles from '../../styles/stepper/stepper.module.css'
+import React from "react";
+import styles from "./../../styles/stepper/stepper.module.css";
 
-const StepperApp = ()=>{
-
-  const [currentStep,setCurrentStep]= useState(0)
-
-  const nextStep = ()=>{
-    setCurrentStep((step)=> Math.min(step +1,Steps.length -1))
-  }
-
-  const preStep = ()=>{
-    setCurrentStep((step)=> Math.max(step -1,0))
-  }
-
-
-  return(
-    <>
-    <div className={styles.box}>
-      <div className={styles.tracker}>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-      </div>
-      <div>{Steps[currentStep].component}</div>
-      <button
-        onClick={preStep}
-        disabled={currentStep === 0}
-     >Previous</button>
-
-      <button
-        onClick={nextStep}
-        disabled={currentStep === Steps.length -1}
-      >Next</button>
-    </div>
-    </>
-  )
+interface StepperProps {
+  steps?: string[];
+  currentStep: number;
 }
 
-export default StepperApp
+const Stepper: React.FC<StepperProps> = ({ steps = [], currentStep }) => {
+  return (
+    <div className={styles.stepperContainer}>
+      {steps.map((label, index) => {
+        const isActive = index === currentStep;
+        const isCompleted = index < currentStep;
+
+        return (
+          <div key={index} className={styles.step}>
+            {/* Connector */}
+            {index !== 0 && (
+              <div
+                className={`${styles.connector} ${
+                  isCompleted ? styles.completedConnector : ""
+                }`}
+              />
+            )}
+
+            {/* Circle */}
+            <div
+              className={`${styles.circle} ${
+                isActive ? styles.activeCircle : ""
+              } ${isCompleted ? styles.completedCircle : ""}`}
+            >
+              {isCompleted ? "✓" : index + 1}
+            </div>
+
+            {/* Label */}
+            <div
+              className={`${styles.label} ${
+                isActive ? styles.activeLabel : ""
+              } ${isCompleted ? styles.completedLabel : ""}`}
+            >
+              {label}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Stepper;
